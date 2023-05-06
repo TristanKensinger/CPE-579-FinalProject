@@ -14,7 +14,7 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: dodgerblue;
+  background-color: #e8dab2;
 }
 
 .App {
@@ -112,4 +112,32 @@ button {
 
 .line {
   display: inline-block;
+}
+
+.variableDiv {
+  background-color: #dd6e42;
+  padding: 0.5rem;
+}
+
+.variable {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem;
+}
+
+.successMessage {
+  background-color: #4F6D7A;
+  color: white;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 20px;
+  font-size: 100%;
+  margin-bottom: 1rem;
+}
+
+#hashedPasswordParagraph {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }

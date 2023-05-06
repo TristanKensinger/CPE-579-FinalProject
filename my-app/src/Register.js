@@ -30,6 +30,9 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  const [hashedPassword, setHashedPassword] = useState("");
+  const [username, setUsername] = useState("");
+
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -64,14 +67,14 @@ const Register = () => {
       return;
     }
     try {
+      console.log("axios call");
       const response = await axios.post(
         REGISTER_URL,
         { user, pwd },
         { headers: { "Content-Type": "application/json" } }
       );
-      console.log(response.data);
-      console.log(response.accessToken);
-      console.log(JSON.stringify(response));
+      setUsername(response.data.username);
+      setHashedPassword(response.data.hashedPassword);
       setSuccess(true);
       // clear input fields
     } catch (err) {
@@ -91,9 +94,21 @@ const Register = () => {
     <>
       {success ? (
         <section>
-          <h1>Success!</h1>
+          <h1 className="successMessage">Successful Registration!</h1>
+          <div className="variableDiv">
+            <p>Username:</p>
+            <p className="variable">{username}</p>
+            <p>Encrypted Password:</p>
+            <p id="hashedPasswordParagraph" className="variable">
+              {hashedPassword}
+            </p>
+          </div>
           <p>
-            <a href="#">Sign In</a>
+            <br />
+            <span className="line">
+              {/* put router link here */}
+              <a href="#">Sign In</a>
+            </span>
           </p>
         </section>
       ) : (
