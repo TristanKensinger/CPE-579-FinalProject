@@ -17,15 +17,6 @@ body {
   background-color: #e8dab2;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem 0.5rem;
-}
-
 section {
   width: 100%;
   max-width: 420px;
@@ -35,6 +26,7 @@ section {
   justify-content: flex-start;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.4);
+  margin-top: 1rem;
 }
 
 form {
@@ -67,6 +59,14 @@ button {
 
 button {
   padding: 0.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .instructions {
