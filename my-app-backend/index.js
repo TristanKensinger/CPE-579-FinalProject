@@ -52,6 +52,27 @@ app.post("/register", async (req, res) => {
   res.json({ username, hashedPassword });
 });
 
+app.post("/login", async (req, res) => {
+  console.log("login route");
+  const username = req.body.user;
+  const password = req.body.pwd;
+
+  // grab user from database and compare passwords
+  const usersCollectionDB = await users();
+  const userDB = await usersCollectionDB.findOne({ username: username });
+  if (userDB === null) {
+    return res.status(500).json({ error: "User not found" });
+  }
+  console.log(userDB.password);
+  matching = await bcrypt.compare(password, userDB.password);
+  if (!matching) {
+    return res.status(500).json({ error: "Incorrect password" });
+  }
+
+  // output to frontend
+  res.json({ username });
+});
+
 // creating server
 app.listen(3000, () => {
   console.log("We've now got a server!");

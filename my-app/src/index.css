@@ -61,6 +61,17 @@ button {
   padding: 0.5rem;
 }
 
+.homeButton-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeButton{
+  width: 8rem
+}
+
 .container {
   display: flex;
   flex-direction: column;
