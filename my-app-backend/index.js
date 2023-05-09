@@ -46,14 +46,14 @@ app.post("/register", async (req, res) => {
   }
 
   // output to frontend
-  console.log(`password entered: ${password}`);
-  console.log(`hashed password: ${hashedPassword}`);
-  console.log(`matching?: ${matching}`);
+  // console.log(`password entered: ${password}`);
+  // console.log(`hashed password: ${hashedPassword}`);
+  // console.log(`matching?: ${matching}`);
   res.json({ username, hashedPassword });
 });
 
 app.post("/login", async (req, res) => {
-  console.log("login route");
+  // console.log("login route");
   const username = req.body.user;
   const password = req.body.pwd;
 
@@ -63,7 +63,7 @@ app.post("/login", async (req, res) => {
   if (userDB === null) {
     return res.status(500).json({ error: "User not found" });
   }
-  console.log(userDB.password);
+  // console.log(userDB.password);
   matching = await bcrypt.compare(password, userDB.password);
   if (!matching) {
     return res.status(500).json({ error: "Incorrect password" });
